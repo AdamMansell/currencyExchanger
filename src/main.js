@@ -1,4 +1,4 @@
-import { moneySorter } from "./js/moneySorter";
+// import { moneySorter } from "./js/moneySorter";
 import $ from "jquery";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -24,14 +24,16 @@ $(document).ready(function () {
     promise.then(function (response) {
       const allMoney = JSON.parse(response);
       let moneyArray = allMoney.conversion_rates;
-      moneySorter(moneyArray);
-      console.log(`${moneySorter(moneyArray)}`);
-      $(".showDist").text(`${moneySorter(moneyArray)}`);
-    }, function(error) {
-      const astResponse = JSON.parse(error);
-      console.log(astResponse);
-      $(".showDist").text(`error: ${allMoney.error_message}`);
+      console.log(moneyArray);
+      // moneySorter(moneyArray);
+  
+      // $(".showDist").text(`${moneySorter(moneyArray)}`);
     });
+    // function(error) {
+    //   const astResponse = JSON.parse(error);
+    //   console.log(astResponse);
+    //   $(".showDist").text(`error: ${allMoney.error_message}`);
+    // });
 
   });
 });
