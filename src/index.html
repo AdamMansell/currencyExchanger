@@ -6,7 +6,23 @@
   <body>
     <div class="container">
       <h1 id="title">Give Me Mah Monayyy</h1>
-
+      <form>
+            <label for="usdVal">AUSD Amount:</label>
+          <input id="usdVal" class="form-control" type="number">
+        <div class="card" id="currency-div" class="form-group" class="radio">
+          <div class="card-body">
+            <label><u><strong>Choose a currency:</strong></u></label>
+            <select id="altCur" class="form-control">
+              <option name="AUD" value="AUD">AUD</option>
+              <option name="AED" value="AED">EUR</option>
+              <option name="AED" value="AED">AED</option>
+              <option name="CAD" value="CAD">CAD</option>
+              <option name="HKD" value="HKD">HKD</option>
+              <option name="JPY" value="JPY">JPY</option>
+            </select>
+          </div>
+        </div>
+      </form>
       <button class="btn-success" id="getMoney">TRANSLATE DIS</button>
       <div class="showDist"></div>
     </div>

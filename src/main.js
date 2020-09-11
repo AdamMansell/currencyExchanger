@@ -9,6 +9,7 @@ $(document).ready(function () {
   let altCur = $("#altCur").val();
 
   $("#getMoney").click(function () {
+    console.log(usd);
     let promiseToRetrieveCurrencies = new Promise(function (resolve, reject) {
       let request = new XMLHttpRequest();
       const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`;
@@ -25,14 +26,14 @@ $(document).ready(function () {
     promiseToRetrieveCurrencies.then(function (response) {
       const allMoney = JSON.parse(response);
       let moneyArray = allMoney.conversion_rates;
-      console.log(moneyArray);
+      // console.log(moneyArray);
       moneySorter(usd, altCur, moneyArray);
       $(".showDist").text(`${moneySorter(moneyArray)}`);
     },
     function (error) {
       const allMoney = JSON.parse(error);
       // const astResponse = JSON.parse(error);
-      console.log("hello");
+      // console.log("hello");
       $(".showDist").text(`error: ${allMoney.error_message}`);
     });
   });
