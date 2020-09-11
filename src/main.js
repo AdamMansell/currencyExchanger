@@ -5,8 +5,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/styles.css";
 
 $(document).ready(function () {
+  let usd = $("#usdVal").val();
+  let altCur = $("#altCur").val();
+
   $("#getMoney").click(function () {
-    let promise = new Promise(function (resolve, reject) {
+    let promiseToRetrieveCurrencies = new Promise(function (resolve, reject) {
       let request = new XMLHttpRequest();
       const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`;
       request.onload = function () {
@@ -19,17 +22,17 @@ $(document).ready(function () {
       request.open("GET", url, true);
       request.send();
     });
-    promise.then(function (response) {
+    promiseToRetrieveCurrencies.then(function (response) {
       const allMoney = JSON.parse(response);
       let moneyArray = allMoney.conversion_rates;
       console.log(moneyArray);
-      moneySorter(moneyArray);
+      moneySorter(usd, altCur, moneyArray);
       $(".showDist").text(`${moneySorter(moneyArray)}`);
     },
     function (error) {
       const allMoney = JSON.parse(error);
-      const astResponse = JSON.parse(error);
-      console.log(astResponse);
+      // const astResponse = JSON.parse(error);
+      console.log("hello");
       $(".showDist").text(`error: ${allMoney.error_message}`);
     });
   });
