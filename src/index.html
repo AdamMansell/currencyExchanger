@@ -1,30 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Exchange</title>
 
-<html lang="en-US">
-  <head>
-    <title>Currency Exchange</title>
-  </head>
-  <body>
-    <div class="container">
-      <h1 id="title">Give Me Mah Monayyy</h1>
-      <form>
-            <label for="usdVal">AUSD Amount:</label>
-          <input id="usdVal" class="form-control" type="number">
-        <div class="card" id="currency-div" class="form-group" class="radio">
-          <div class="card-body">
-            <label><u><strong>Choose a currency:</strong></u></label>
-            <select id="altCur" class="form-control">
-              <option name="AUD" value="AUD">AUD</option>
-              <option name="AED" value="AED">EUR</option>
-              <option name="AED" value="AED">AED</option>
-              <option name="CAD" value="CAD">CAD</option>
-              <option name="HKD" value="HKD">HKD</option>
-              <option name="JPY" value="JPY">JPY</option>
-            </select>
-          </div>
-        </div>
-      </form>
-      <button class="btn-success" id="getMoney">TRANSLATE DIS</button>
-      <div class="showDist"></div>
+</head>
+<body>
+  <form id="formOne">
+    <div class="form-group">
+      <label for="usdVal">USD Amount:</label>
+      <input id="usdVal" class="form-control" type="number">
     </div>
-  </body>
+    <div class="card" id="currency-div" class="form-group" class="radio">
+      <div class="card-body">
+        <label><u><strong>Choose a currency:</strong></u></label>
+        <select id="altCur" class="form-control">
+          <option name="AUD" value="AUD">AUD</option>
+          <option name="EUR" value="EUR">EUR</option>
+          <option name="AED" value="AED">AED</option>
+          <option name="CAD" value="CAD">CAD</option>
+          <option name="HKD" value="HKD">HKD</option>
+          <option name="JPY" value="JPY">JPY</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn-success" id="getMoney">Exchange Currency</button>
+  </form>
+  <div class="showDist"></div>
+  
+</body>
 </html>
