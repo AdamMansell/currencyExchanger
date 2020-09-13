@@ -7,8 +7,6 @@ export function moneySorter(usd, altCur, moneyArray) {
   altCur == "CAD" ? selectedCurrency = moneyArray.CAD : selectedCurrency;
   altCur == "HKD" ? selectedCurrency = moneyArray.HKD : selectedCurrency;
   altCur == "JPY" ? selectedCurrency = moneyArray.JPY : selectedCurrency;
-  console.log(usd, altCur, moneyArray);
   let newAmount = parseFloat(usd * selectedCurrency);
-  console.log(newAmount);
   return newAmount;
 }

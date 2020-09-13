@@ -11,14 +11,13 @@ $(document).ready(function () {
     let usd = $("#usdVal").val();
     let promiseToRetrieveCurrencies = new Promise(function (resolve, reject) {
       let request = new XMLHttpRequest();
-      // const url = `https://v6.exchangerate-api.com/v6/fc1e8dd46f5a25cbb5a4ecc8/latest/USD`;
-      const url = `https://`;
+      const url = `https://v6.exchangerate-api.com/v6/fc1e8dd46f5a25cbb5a4ecc8/latest/USD`;
+      // const url = `https://`;
       request.onload = function () {
         if (this.status === 200) {
           resolve(request.response);
         } else {
           reject(request.response);
-          console.log('hello');
         }
       };
       request.open("GET", url, true);
@@ -27,12 +26,9 @@ $(document).ready(function () {
     promiseToRetrieveCurrencies.then(function (response) {
       const allMoney = JSON.parse(response);
       let moneyArray = allMoney.conversion_rates;
-      // console.log(moneyArray);
       let result = moneySorter(usd, altCur, moneyArray);
       $(".showDist").text(result);
     }, function(error) {
-      console.log(JSON.parse(error));
-      console.log(`There was an error: ${allMoney.error_message}`);
       const allMoney = JSON.parse(error);
       $(".showDist").text(`There was an error: ${allMoney.error_message}`);
     });
