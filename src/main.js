@@ -11,7 +11,7 @@ $(document).ready(function () {
     let usd = $("#usdVal").val();
     let promiseToRetrieveCurrencies = new Promise(function (resolve, reject) {
       let request = new XMLHttpRequest();
-      const url = `https://v6.exchangerate-api.com/v6/fc1e8dd46f5a25cbb5a4ecc8/latest/USD`;
+      const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`;
       // const url = `https://`;
       request.onload = function () {
         if (this.status === 200) {
